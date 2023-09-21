@@ -15,10 +15,10 @@ function SubMenuNavbar() {
     const [activeSection, setActiveSection] = useState('mainHeader');
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const pageLang = searchParams.get('lang');
-    const { data: navbarTabs } = useFetchData(`tabs?lang=${pageLang ? pageLang : 'ar'}`);
+    const pageLang = searchParams.get('lang') ?? 'ar';
+    const { data: navbarTabs } = useFetchData(`tabs?lang=${pageLang}`);
 
-    console.log(navbarTabs)
+    console.log(pageLang)
 
     const router = useRouter();
 
@@ -55,7 +55,7 @@ function SubMenuNavbar() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto mr-auto flex justify-content-center align-items-center">
                         {navbarTabs && navbarTabs.map(tab => (
-                            <Dropdown>
+                            <Dropdown key={tab.id}>
                                 <Dropdown.Toggle className="custom-dropdown" id="dropdown-basic">
                                     {tab.localizedName[0].name}  <IoIosArrowDown />
                                 </Dropdown.Toggle>

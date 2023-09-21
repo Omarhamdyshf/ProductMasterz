@@ -28,7 +28,6 @@ body {
     --linear-gradient: linear-gradient(to right top, #66dbd7, #43a7b2, #2b7687, #19485a, #081f2d);
     --linear-gradient-second: linear-gradient(to right top, #66dbd7, #5ed7d3, #56d3cf, #4dd0ca, #43ccc6);
     background-color: var(--primary-background);
-    color: var(--primary-color);
     --normal-shadow: 0px 0px 10px 0px rgb(29 29 29 / 24%);
     --basic-shadow: 0px 0px 10px 0px rgb(29 29 29 / 10%);
 

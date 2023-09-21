@@ -3,6 +3,7 @@ import { CurrentUser, Title } from '@/Components/UI';
 import { authOptions } from '@/utils/authOptions';
 import { getData } from '@/utils/basicURL';
 import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 import React from 'react'
 export const metadata = {
   title: "Navbar Config page",
