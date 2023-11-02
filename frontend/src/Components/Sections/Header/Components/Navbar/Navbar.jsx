@@ -6,7 +6,6 @@ import { Navbar, Nav, Container, Button, NavDropdown } from "react-bootstrap";
 import { FaBars } from 'react-icons/fa';
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams  } from 'next/navigation'
-import useFetchData from "@/Hooks/useFetchData";
 import Link from "next/link";
 
 function NavbarHeader({ navLinks }) {
@@ -37,11 +36,9 @@ function NavbarHeader({ navLinks }) {
         <Navbar fixed="top" expand="lg" variant="dark" className="scrolled navbar-zindex ">
             <Container>
                 {/* Site Logo */}
-                <Navbar.Brand href="#" className="d-flex align-items-center mr-0">
-                     <Link href={'/'}>
-                        <Image src={'/Horizontal Version.png'} alt="logo" width={200} height={70} className="object-fit-cover " />
-                    </Link>
-                </Navbar.Brand>
+                <Link href={'/'}>
+                    <Image src={'/Horizontal Version.png'} alt="logo" width={200} height={70} className="object-fit-cover " />
+                </Link>
                 {/* Dropdown Button */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-0 text-mode'>
                     <FaBars />
@@ -50,20 +47,20 @@ function NavbarHeader({ navLinks }) {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto mr-auto flex justify-content-center align-items-center">
                         {navLinks.map((item, index) => (
-                            <Nav.Link
+                            <Link
                                 key={index} 
                                 className={` nav-link  ${activeSection === item.link ? 'active-link' : ''}`}
                                 href={`#${item.link}`}
                             >
                                 {item.text}
-                            </Nav.Link>
+                            </Link>
 
                         ))}
                     </Nav>
-                <select className="select-lang" onChange={handleLanguageChange} value={pageLang}>
-                    <option value="ar">ar</option>
-                    <option value="en">en</option>
-                </select>
+                    <select className="select-lang" onChange={handleLanguageChange} value={pageLang}>
+                        <option value="ar">ar</option>
+                        <option value="en">en</option>
+                    </select>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

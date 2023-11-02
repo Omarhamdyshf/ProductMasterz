@@ -18,8 +18,6 @@ function SubMenuNavbar() {
     const pageLang = searchParams.get('lang') ?? 'ar';
     const { data: navbarTabs } = useFetchData(`tabs?lang=${pageLang}`);
 
-    console.log(pageLang)
-
     const router = useRouter();
 
     const getSectionId = (index) => {
@@ -42,11 +40,9 @@ function SubMenuNavbar() {
         <Navbar fixed="top" expand="lg" variant="dark" className="scrolled navbar-zindex ">
             <Container>
                 {/* Site Logo */}
-                <Navbar.Brand href="#" className="d-flex align-items-center mr-0">
-                    <Link href={'/'}>
-                      <Image src={'/Horizontal Version.png'} alt="logo" width={200} height={70} className="object-fit-cover " />
-                    </Link>
-                </Navbar.Brand>
+                <Link href={'/'}>
+                    <Image src={'/Horizontal Version.png'} alt="logo" width={200} height={70} className="object-fit-cover " />
+                </Link>
                 {/* Dropdown Button */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-0 text-mode'>
                     <FaBars />
